@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ApplicationRouteModule } from './application-route/application-route.module';
 import { RouterModule } from '@angular/router';
 import { movieApiInterceptorProvider } from './interceptors/movies-api.interceptor';
+import { MoviesModule } from './movies/movies.module';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { movieApiInterceptorProvider } from './interceptors/movies-api.intercept
   ],
   imports: [
     BrowserModule,
+    MoviesModule,
     HttpClientModule,
     RouterModule,
     ApplicationRouteModule

@@ -1,1 +1,12 @@
-<p>movie-item works!</p>
+<div class="movie-item">
+    <app-movie-image [path]="movie.poster_path" [size]="200"></app-movie-image>
+    <div class="movie-item-title">
+        <h3>{{movie.title}}</h3>
+    </div>
+    <div class="movie-item-description">
+        <h3>{{movie.overview}}</h3>
+    </div>
+    <div class="movie-item-link">
+        <a [routerLink]="'/movie/'+ movie.id">Ver detalhes</a>
+    </div>
+</div>

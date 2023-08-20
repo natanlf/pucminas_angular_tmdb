@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../services/movies.service';
+import { MovieOverview } from '../models/MovieOverview';
 
 @Component({
   selector: 'app-movies-list',
@@ -7,6 +8,8 @@ import { MoviesService } from '../services/movies.service';
   styleUrls: ['./movies-list.component.css']
 })
 export class MoviesListComponent implements OnInit {
+
+  public movies: Array<MovieOverview> = [];
 
   constructor(private moviesService: MoviesService) {}
 
@@ -17,7 +20,7 @@ export class MoviesListComponent implements OnInit {
   getPopularMovies() {
     this.moviesService.getPopularMovies()
     .subscribe((movies) => {
-      console.table(movies)
+      this.movies = movies;
     })
   }
 

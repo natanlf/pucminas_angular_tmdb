@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { MovieOverview } from '../models/MovieOverview';
 
 @Component({
   selector: 'app-movie-item',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class MovieItemComponent {
 
+  @Input() movie!: MovieOverview;
 }

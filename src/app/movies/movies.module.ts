@@ -4,6 +4,7 @@ import { MoviesListComponent } from './movies-list/movies-list.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieItemComponent } from './movie-item/movie-item.component';
 import { MovieImageComponent } from './movie-image/movie-image.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { MovieImageComponent } from './movie-image/movie-image.component';
     MovieImageComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     MoviesListComponent

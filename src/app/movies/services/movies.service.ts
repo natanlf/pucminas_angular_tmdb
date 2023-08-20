@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { MovieHttpResult } from '../models/PopularMoviesResponse';
 import { Observable, map, retry } from 'rxjs';
 import { MovieOverview } from '../models/MovieOverview';
+import { Movie } from '../models/Movie';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +20,9 @@ export class MoviesService {
       }),
       retry(3)
     );
+  }
+
+  getMovieDetail(movieId: number): Observable<Movie> {
+    return this.http.get<Movie>(`movie/${movieId}`);
   }
 }

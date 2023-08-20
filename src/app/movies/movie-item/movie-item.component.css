@@ -6,3 +6,12 @@
     text-align: center;
     background-color: grey;
 }
+
+.movie-item-link a {
+    color: #c3e88d;
+    text-decoration: none;
+}
+
+.movie-item-link a:hover {
+    color: #1ba339;
+}

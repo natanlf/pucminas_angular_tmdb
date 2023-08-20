@@ -24,4 +24,13 @@ export class MoviesListComponent implements OnInit {
     })
   }
 
+  onMoviesSearch(movieName: string) {
+    this.moviesService.searchMoviesByName(movieName)
+    .subscribe(movies => this.movies = movies);
+  }
+
+  onSearchReset() {
+    this.getPopularMovies();
+  }
+
 }

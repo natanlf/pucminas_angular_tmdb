@@ -25,4 +25,11 @@ export class MoviesService {
   getMovieDetail(movieId: number): Observable<Movie> {
     return this.http.get<Movie>(`movie/${movieId}`);
   }
+
+  searchMoviesByName(movieName: string): Observable<Array<MovieOverview>> {
+    return this.http.get<MovieHttpResult>(`search/movie?query=${movieName}`)
+      .pipe(
+        map(response => response.results)
+      );
+  }
 }

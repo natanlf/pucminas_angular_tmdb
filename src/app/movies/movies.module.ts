@@ -7,6 +7,7 @@ import { MovieImageComponent } from './movie-image/movie-image.component';
 import { RouterModule } from '@angular/router';
 import { SearchMoviesComponent } from './search-movies/search-movies.component';
 import { FormsModule } from '@angular/forms';
+import { MoviesRoutingModule } from './movies-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    MoviesRoutingModule
   ],
   exports: [
     MoviesListComponent

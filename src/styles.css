@@ -4,12 +4,12 @@ body {
     color: #fafafa;
 }
 
-body h1 a {
+body ul li a {
     color: #fafafa;
     text-decoration: none;
 }
 
-body h1 a:hover {
+body ul li a:hover {
     color: #c3e88d;
     text-decoration: none;
 }

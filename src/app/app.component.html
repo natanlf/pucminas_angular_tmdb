@@ -1,13 +1,17 @@
-<h1>
-  <a routerLink="/">Angular movie app</a>
-</h1>
+<header>
+  <h1>
+    <a routerLink="/">Angular movies app</a>
+  </h1>
 
-<h1>
-  <a routerLink="/">Filmes populares</a>
-</h1>
-
-<h1>
-  <a routerLink="/favorites">Favoritos</a>
-</h1>
-
-<router-outlet></router-outlet>
+  <nav class="main-menu">
+    <ul>
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/popular-movies">Filmes populares</a></li>
+      <li><a routerLink="/favorite-movies">Filmes Favoritos</a></li>
+    </ul>
+  </nav>
+</header>
+<div class="loader" *ngIf="isLoading">
+  <h1>Loading...</h1>
+</div>
+<router-outlet *ngIf="!isLoading"></router-outlet>

@@ -1,7 +1,6 @@
 import { Routes } from "@angular/router";
 import { MoviesListComponent } from "../movies/movies-list/movies-list.component";
 import { MovieDetailsComponent } from "../movies/movie-details/movie-details.component";
-import { FavoritesComponent } from "../favorites/favorites/favorites.component";
 
 export const routes: Routes = [
     {
@@ -9,11 +8,27 @@ export const routes: Routes = [
         component: MoviesListComponent
     },
     {
+        path: "popular-movies",
+        loadChildren: () =>
+            import(
+                '../movies/movies.module'
+            ).then(m => m.MoviesModule), 
+            data: {
+                preload: true
+            }
+    },
+    {
         path: "movie/:id",
         component: MovieDetailsComponent
     },
     {
-        path: "favorites",
-        component: FavoritesComponent
+        path: "favorite-movies",
+        loadChildren: () =>
+            import(
+                '../favorites/favorites.module'
+            ).then(m => m.FavoritesModule),
+            data: {
+                preaload: false
+            }
     }
 ]

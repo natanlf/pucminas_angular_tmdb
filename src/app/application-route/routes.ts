@@ -1,6 +1,8 @@
 import { Routes } from "@angular/router";
 import { MoviesListComponent } from "../movies/movies-list/movies-list.component";
 import { MovieDetailsComponent } from "../movies/movie-details/movie-details.component";
+import { inject } from "@angular/core";
+import { CustomMoviesResolver } from "../movies/resolvers/CustomMoviesResolver";
 
 export const routes: Routes = [
     {
@@ -12,7 +14,10 @@ export const routes: Routes = [
         loadChildren: () =>
             import(
                 '../movies/movies.module'
-            ).then(m => m.MoviesModule), 
+            ).then(m => m.MoviesModule),
+            resolve: {
+                popularMovies: () => inject(CustomMoviesResolver).getPopularMovies()
+            },
             data: {
                 preload: true
             }

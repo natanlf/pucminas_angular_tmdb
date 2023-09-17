@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MovieHttpResult } from '../models/PopularMoviesResponse';
-import { Observable, map, retry } from 'rxjs';
+import { Observable, catchError, map, retry, throwError } from 'rxjs';
 import { MovieOverview } from '../models/MovieOverview';
 import { Movie } from '../models/Movie';
 
@@ -18,7 +18,8 @@ export class MoviesService {
       map(data => {
         return data.results
       }),
-      retry(3)
+      retry(3),
+      catchError(this.handleApiError)
     );
   }
 
@@ -31,5 +32,15 @@ export class MoviesService {
       .pipe(
         map(response => response.results)
       );
+  }
+
+  private handleApiError(error: HttpErrorResponse) {
+    if(error.status === 0) {
+      console.error("Client-side or network error has happend")
+    } else {
+      console.error(`The API returned with error ${error.status}. Body was: ${error.error}`)
+    }
+
+    return throwError(() => new Error("Ocorreu um erro na requisição"));
   }
 }
